@@ -10,7 +10,7 @@ import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
 
-def clean_df(data):
+def clean_data(data):
     # Dict for cleaning data
     months = {"jan":1, "feb":2, "mar":3, "apr":4, "may":5, "jun":6, "jul":7, "aug":8, "sep":9, "oct":10, "nov":11, "dec":12}
     weekdays = {"mon":1, "tue":2, "wed":3, "thu":4, "fri":5, "sat":6, "sun":7}
@@ -44,9 +44,7 @@ def clean_df(data):
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 ds = TabularDatasetFactory.from_delimited_files(path="https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv")### YOUR CODE HERE ###
-print(ds)
-print(ds.to_pandas_dataframe().dropna())
-x, y = clean_df(ds)
+x, y = clean_data(ds)
 
 # TODO: Split data into train and test sets.
 
@@ -71,12 +69,13 @@ def main():
     run.log("Max iterations:", np.int(args.max_iter))
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
+    # Prepare folder and save trained model
+    os.makedirs('outputs', exist_ok=True)
+    joblib.dump(model, "outputs/trained_model.joblib")
 
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
-    # Prepare folder and save trained model
-    os.makedirs('output', exist_ok=True)
-    joblib.dump(model, "output/trained_model.joblib")
+   
 
 if __name__ == '__main__':
     main()
