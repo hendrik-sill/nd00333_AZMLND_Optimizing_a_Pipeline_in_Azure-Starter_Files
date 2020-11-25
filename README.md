@@ -7,11 +7,18 @@ This model is then compared to an Azure AutoML run.
 
 ## Summary
 **In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
-
+The dataset used for this ML pipeline is based on data collected by a Portuguese bank and contains variables related to clients, the last contact with
+clients in the context of the current campaign, additional attributes related to the campaign, general economic/ social indicators and whether a client
+has subscribed to a term deposit. The aim of this pipeline is to predict whether a particular client will subscribe to a term deposit or not given the
+different attributes contained in the dataset.
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+
 
 ## Scikit-learn Pipeline
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+In the Scikit-learn pipeline the data is obtained from an online source and then some simple data cleaning is performed which mainly consists of
+encoding categorical variables.The algorithm used is a simple logistic regression. Hyperparameter tuning was performed for both the regularisation
+inverse and the number of iterations.
 
 **What are the benefits of the parameter sampler you chose?**
 
@@ -25,7 +32,3 @@ This model is then compared to an Azure AutoML run.
 
 ## Future work
 **What are some areas of improvement for future experiments? Why might these improvements help the model?**
-
-## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
