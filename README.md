@@ -6,12 +6,12 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-#Problem Statement
+### Problem Statement
 The dataset used for this ML pipeline is based on data collected by a Portuguese bank and contains variables related to clients, the last contact with
 clients in the context of the current campaign, additional attributes related to the campaign, general economic/ social indicators and whether a client
 has subscribed to a term deposit. The aim of this pipeline is to predict whether a particular client will subscribe to a term deposit or not given the
-different attributes contained in the dataset.
-# Explanation of the Solution
+different attributes contained in the dataset. (Information about the dataset taken from https://archive.ics.uci.edu/ml/datasets/bank+marketing#)
+### Explanation of the Solution
 The best performing model was a Voting Ensemble model chosen by Azure AutoML with an accuracy of 91.74%.
 
 
@@ -46,4 +46,4 @@ pipeline. Logistic regression makes sense as a starting point, but given the no 
 models since there is no way to know ex-ante which model will perform best. 
 
 Moreover, we may also want to reconsider our **performance measure** given that we are dealing with a highly **imbalanced dataset** where clients who subscribed to a term deposit account for only 11.20% of all cases. Rather than accuracy we may want to use a metric like AUC weighted offered by AutoML to obtain a more realistic assessment of model performance. Another way to deal with this issue would be to **collect
-additional data** of positive cases and/ or to use resampling techniques to create a balanced dataset.
+additional data** of positive cases and/ or to use resampling techniques to create a balanced dataset. (For more information see e.g. https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18)
