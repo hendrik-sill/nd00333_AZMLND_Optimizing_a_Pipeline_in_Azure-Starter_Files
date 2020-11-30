@@ -20,11 +20,11 @@ In the Scikit-learn pipeline the data is obtained from an online source and then
 encoding categorical variables.The algorithm used is a simple logistic regression. Hyperparameter tuning was performed for both the regularisation
 inverse and the number of iterations.
 
-#Benefits of the chosem parameter sampler
+### Benefits of the chosem parameter sampler
 I chose a random parameter sampler which will provide a similar performance to a deterministic grid based approach, but with a significantly
 smaller number of iterations.
 
-#Benefits of the chosen early stopping policy
+### Benefits of the chosen early stopping policy
 The bandit policy allows us to implement early stopping based on the performance relative in terms of performance compared to the best performing run
 instead of either basing termination upon the performance relative to the median or whether a particular run is among a specified percentage
 of worst performing runs. 
@@ -41,9 +41,9 @@ will usually have not such a large impact on performance if we are using a rathe
 it could overfit the data.
 
 ## Future work
-There are several possible wazs to improve this experiment. For one thing we may want to try out **different models** in our scikit learn
+There are several possible ways to improve this experiment. For one thing we may want to try out **different models** in our scikit learn
 pipeline. Logistic regression makes sense as a starting point, but given the no free lunch theorem, we should always try out different
-models since there is no way to know ex-ante which model will perform best. Moreover, we may also want to reconsider our performance measure given that we
-are dealing with a highly imbalanced dataset where clients who subscribed to a term deposit account for only 11.20% of all cases. Rather than accuracy we may want to
-use a metric like AUC weighted offered by AutoML to obtain a more realistic assessment of model performance. Another way to deal with this issue would be to collect
-additional data of positive and/ or to use resampling techniques to create a balanced dataset.
+models since there is no way to know ex-ante which model will perform best. 
+
+Moreover, we may also want to reconsider our **performance measure** given that we are dealing with a highly **imbalanced dataset** where clients who subscribed to a term deposit account for only 11.20% of all cases. Rather than accuracy we may want to use a metric like AUC weighted offered by AutoML to obtain a more realistic assessment of model performance. Another way to deal with this issue would be to **collect
+additional data** of positive cases and/ or to use resampling techniques to create a balanced dataset.
