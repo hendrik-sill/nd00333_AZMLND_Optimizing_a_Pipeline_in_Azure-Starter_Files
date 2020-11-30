@@ -12,7 +12,7 @@ clients in the context of the current campaign, additional attributes related to
 has subscribed to a term deposit. The aim of this pipeline is to predict whether a particular client will subscribe to a term deposit or not given the
 different attributes contained in the dataset.
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
-The best performing model was an ensemble based approach chosen by Azure AutoML with an accuracy of .
+The best performing model was a Voting Ensemble model chosen by Azure AutoML with an accuracy of 91.74%.
 
 
 ## Scikit-learn Pipeline
