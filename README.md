@@ -20,7 +20,7 @@ In the Scikit-learn pipeline the data is obtained from an online source and then
 encoding categorical variables.The algorithm used is a simple logistic regression. Hyperparameter tuning was performed for both the regularisation
 inverse and the number of iterations.
 
-### Benefits of the chosem parameter sampler
+### Benefits of the chosen parameter sampler
 I chose a random parameter sampler which will provide a similar performance to a deterministic grid based approach, but with a significantly
 smaller number of iterations.
 
@@ -28,6 +28,8 @@ smaller number of iterations.
 The bandit policy allows us to implement early stopping based on the performance relative in terms of performance compared to the best performing run
 instead of either basing termination upon the performance relative to the median or whether a particular run is among a specified percentage
 of worst performing runs. 
+
+The explanations of the benefits of the chosen early stopping policy and the parameter sample are based upon the official Azure ML documentation on hyperparameter tuning: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
 
 ## AutoML
 The model chosen by AutoML is a Voting Ensemble model which combines 'XGBoostClassifier', 'XGBoostClassifier', 'LightGBM', 'XGBoostClassifier', 'XGBoostClassifier' and 'SGD'.
